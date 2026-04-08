@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Marcos Zamora — Portfolio
 
-## Getting Started
+Personal portfolio site built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Dark/cyberpunk aesthetic with terminal-inspired design.
 
-First, run the development server:
+**Live:** [your-portfolio.vercel.app](https://your-portfolio.vercel.app) ← replace after deploying
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript (strict)
+- **Styling:** Tailwind CSS + CSS custom properties
+- **Animations:** Framer Motion
+- **Fonts:** Orbitron + Share Tech Mono (Google Fonts)
+- **Deployment:** Vercel
+
+## Features
+
+- Glitch effect on hero name (CSS `::before` / `::after` + `clip-path`)
+- Scanline overlay + neon grid background (fixed CSS pseudo-elements)
+- Staggered `fadeIn` entrance animations
+- Project cards with animated top-line on hover
+- System status panel with pulsing indicators
+- Fully typed data layer (`src/data/`)
+- Static export ready
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── globals.css      # CSS variables, glitch keyframes, scanlines
+│   ├── layout.tsx       # Root layout + SEO metadata
+│   └── page.tsx         # Page composition
+├── components/
+│   ├── Nav.tsx          # Fixed nav with animated underlines
+│   ├── Hero.tsx         # Glitch name, blinking cursor, CTA buttons
+│   ├── StatusPanel.tsx  # Live status indicators
+│   ├── Projects.tsx     # Project grid
+│   ├── ProjectCard.tsx  # Individual card with hover effects
+│   ├── Experience.tsx   # Community / teaching experience
+│   ├── Skills.tsx       # Tech stack by category
+│   └── Contact.tsx      # Contact links + footer
+└── data/
+    ├── projects.ts      # Typed project data
+    └── skills.ts        # Skill categories
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Optimized for Vercel — just connect the repo and deploy. No additional configuration needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Marcos Zamora Sánchez** · Costa Rica · [zamoramarcos13@gmail.com](mailto:zamoramarcos13@gmail.com)
