@@ -2,7 +2,7 @@
 
 Personal portfolio site built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Dark/cyberpunk aesthetic with terminal-inspired design.
 
-**Live:** [your-portfolio.vercel.app](https://your-portfolio.vercel.app) ← replace after deploying
+**Live:**: (https://portfolio-one-beryl-60.vercel.app/)
 
 ---
 
