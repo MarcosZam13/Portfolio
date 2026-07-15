@@ -6,14 +6,7 @@ import { skills } from "@/data/skills";
 
 export default function Skills(): React.ReactElement {
   return (
-    <section
-      id="skills"
-      style={{
-        padding: "6rem 2.5rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
+    <section id="skills" className="section">
       {/* Header */}
       <div style={{ marginBottom: "3rem" }}>
         <div
@@ -25,13 +18,13 @@ export default function Skills(): React.ReactElement {
             marginBottom: "0.5rem",
           }}
         >
-          <span style={{ color: "var(--dim)" }}>// </span>
+          <span style={{ color: "var(--dim)" }}>{"// "}</span>
           03 · skills
         </div>
         <h2
           style={{
-            fontFamily: "'Orbitron', monospace",
-            fontSize: "2rem",
+            fontFamily: "var(--font-orbitron), monospace",
+            fontSize: "clamp(1.5rem, 5vw, 2rem)",
             fontWeight: 700,
             color: "#fff",
           }}
@@ -41,13 +34,7 @@ export default function Skills(): React.ReactElement {
       </div>
 
       {/* Grid de categorías */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-          gap: "1.5rem",
-        }}
-      >
+      <div className="skill-grid">
         {skills.map((category, i) => (
           <motion.div
             key={category.label}

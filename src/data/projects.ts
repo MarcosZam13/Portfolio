@@ -9,6 +9,8 @@ export interface Project {
   highlights: string[];
   links: { label: string; href: string }[];
   status: "active" | "deployed" | "academic";
+  /** El código fuente es privado: se muestra un chip en vez de un link roto */
+  sourcePrivate?: boolean;
 }
 
 export const projects: Project[] = [
@@ -17,19 +19,21 @@ export const projects: Project[] = [
     badge: "SaaS · In Development",
     title: "GymBase / MemberBase",
     description:
-      "Multi-tenant gym management SaaS built on a reusable base platform. Full admin portal (members, content, community, routines, calendar, payments) and client-facing portal with workout mode. Multi-tenancy enforced at the database layer via Supabase RLS.",
-    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Zustand", "Zod"],
+      "Multi-tenant gym management SaaS built on a reusable base platform. Full admin portal (members, content, community, routines, calendar, payments) and client-facing portal with workout mode. Multi-tenancy enforced at the database layer via Supabase RLS. Live on a custom domain with Cloudflare DNS.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Zustand", "Zod", "Cloudflare"],
     highlights: [
       "Row-Level Security with shared get_user_role() for tenant isolation",
       "Admin and client portals with 30+ screens",
       "Resolved real production issues: UTC timezone bugs, NULL payment backfill, SECURITY DEFINER on auth triggers",
       "Schema migrations and RLS policy architecture from scratch",
+      "Google OAuth via Supabase Auth + transactional email with Resend",
     ],
     links: [
-      { label: "GymBase", href: "https://github.com/MarcosZam13/Gymbase" },
-      { label: "MemberBase", href: "https://github.com/MarcosZam13/MemberBase" },
+      { label: "Live · gymbase.fit", href: "https://gymbase.fit" },
+      { label: "MemberBase (base platform)", href: "https://github.com/MarcosZam13/MemberBase" },
     ],
     status: "active",
+    sourcePrivate: true,
   },
   {
     id: "caneleapp",
@@ -45,7 +49,7 @@ export const projects: Project[] = [
       "Designed, built, and sold to a real client",
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/MarcosZam13" },
+      { label: "GitHub · v2", href: "https://github.com/MarcosZam13/caneleApp-v2" },
     ],
     status: "deployed",
   },
@@ -65,24 +69,6 @@ export const projects: Project[] = [
     links: [
       { label: "Web", href: "https://github.com/Pochonski/Plataforma-de-Arrendamientos-CR" },
       { label: "Mobile", href: "https://github.com/MarcosZam13/Plataforma-Arrendamientos-Mobile" },
-    ],
-    status: "academic",
-  },
-  {
-    id: "fifa-analysis",
-    badge: "Academic · Data Analysis",
-    title: "FIFA Player Dataset Analysis",
-    description:
-      "Data analysis course project (IC-8076 at TEC). Dimensional modeling of a FIFA player dataset (~215K rows, seasons 2015–2024) with star schema design, clustering, and query optimization.",
-    stack: ["Python", "SQLite", "Pandas", "Matplotlib", "Google Colab"],
-    highlights: [
-      "Star Schema: 5 dimension tables + 1 fact table",
-      "K-Means clustering with outlier handling",
-      "Index optimization benchmarks (before/after query performance)",
-      "Analytical SQL queries on 215K+ rows",
-    ],
-    links: [
-      { label: "GitHub", href: "https://github.com/MarcosZam13" },
     ],
     status: "academic",
   },

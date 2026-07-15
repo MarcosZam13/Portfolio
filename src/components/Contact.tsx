@@ -22,18 +22,17 @@ const LINKS = [
     href: "https://linkedin.com/in/marcos-zamora-sanchez",
     prefix: "↗",
   },
+  {
+    label: "Résumé",
+    value: "View CV — HTML · PDF · JSON",
+    href: "/cv",
+    prefix: "↓",
+  },
 ];
 
 export default function Contact(): React.ReactElement {
   return (
-    <section
-      id="contact"
-      style={{
-        padding: "6rem 2.5rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
+    <section id="contact" className="section">
       {/* Header */}
       <div style={{ marginBottom: "3rem" }}>
         <div
@@ -45,13 +44,13 @@ export default function Contact(): React.ReactElement {
             marginBottom: "0.5rem",
           }}
         >
-          <span style={{ color: "var(--dim)" }}>// </span>
+          <span style={{ color: "var(--dim)" }}>{"// "}</span>
           04 · contact
         </div>
         <h2
           style={{
-            fontFamily: "'Orbitron', monospace",
-            fontSize: "2rem",
+            fontFamily: "var(--font-orbitron), monospace",
+            fontSize: "clamp(1.5rem, 5vw, 2rem)",
             fontWeight: 700,
             color: "#fff",
           }}

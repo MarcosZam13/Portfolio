@@ -66,7 +66,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps): React
       {/* Título del proyecto */}
       <div
         style={{
-          fontFamily: "'Orbitron', monospace",
+          fontFamily: "var(--font-orbitron), monospace",
           fontSize: "1rem",
           color: "#fff",
           marginBottom: "0.6rem",
@@ -129,7 +129,23 @@ export default function ProjectCard({ project, index }: ProjectCardProps): React
       </div>
 
       {/* Links a GitHub / Live */}
-      <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+        {/* Chip para código cerrado: evita prometer un repo que nadie puede abrir */}
+        {project.sourcePrivate && (
+          <span
+            title="Source code is private"
+            style={{
+              fontSize: "0.6rem",
+              letterSpacing: "1px",
+              textTransform: "uppercase",
+              color: "var(--dim)",
+              border: "1px solid rgba(58,80,104,0.5)",
+              padding: "2px 8px",
+            }}
+          >
+            ⬤ Private source
+          </span>
+        )}
         {project.links.map(({ label, href }) => (
           <a
             key={label}

@@ -1,5 +1,4 @@
-/* globals.css — Estilos globales: variables CSS, fuentes, reset y efectos de fondo */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+/* globals.css — Estilos globales: variables CSS, fuentes, reset, layout responsive y efectos de fondo */
 @import "tailwindcss";
 
 :root {
@@ -20,12 +19,14 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensa la nav fija al saltar a una sección con #ancla */
+  scroll-padding-top: 80px;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: var(--font-share-tech), monospace;
   overflow-x: hidden;
   cursor: crosshair;
 }
@@ -58,6 +59,193 @@ body::after {
   pointer-events: none;
   z-index: 0;
 }
+
+/* ── Layout ─────────────────────────────────────────────── */
+
+.section {
+  padding: 6rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+/* Panel de status: flotante a la derecha en desktop */
+.status-panel {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  padding: 1.5rem;
+  background: rgba(10, 21, 32, 0.8);
+  min-width: 220px;
+}
+
+/* ── Nav ───────────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.15);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  transition: background 0.3s;
+}
+
+.nav-bar {
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-cv {
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  padding: 4px 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-cv:hover {
+  background: var(--cyan);
+  color: var(--bg);
+}
+
+/* Hamburguesa: oculta en desktop, visible bajo 768px */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  color: var(--cyan);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.nav-mobile {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 245, 255, 0.15);
+  background: rgba(5, 10, 14, 0.98);
+}
+
+.nav-mobile a {
+  display: block;
+  padding: 1rem 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.06);
+}
+
+.nav-mobile a:active {
+  background: rgba(0, 245, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 1rem 1.25rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Grids que nunca deben desbordar: el track no puede superar el ancho disponible */
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+.skill-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+}
+
+.agent-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+/* Debajo de 1024px el panel de status deja de flotar y pasa a fluir bajo el hero,
+   si no se monta encima del texto. */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 7rem 2.5rem 4rem;
+    min-height: auto;
+  }
+
+  .status-panel {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .hero {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  .status-panel {
+    max-width: none;
+  }
+
+  /* El cursor crosshair no aporta nada en touch */
+  body {
+    cursor: auto;
+  }
+}
+
+/* ── Efectos ────────────────────────────────────────────── */
 
 /* Efecto glitch — pseudo-elementos desplazados con clip-path */
 .glitch {
@@ -117,4 +305,14 @@ body::after {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respeta a quien pide menos movimiento: apaga glitch, pulso y parpadeo */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

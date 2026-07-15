@@ -1,0 +1,255 @@
+/* cv.css — Estilos del CV: una columna, alto contraste, pensado para imprimir y para que un ATS lo parsee.
+   Deliberadamente NO usa la estética cyberpunk del resto del sitio: fondos oscuros y fuentes display
+   empeoran el parseo y la impresión. */
+
+/* El root layout pinta el body oscuro con scanlines: se neutraliza sólo en esta página */
+body:has(.cv) {
+  background: #ffffff;
+  color: #1a1a1a;
+  cursor: auto;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body:has(.cv)::before,
+body:has(.cv)::after {
+  display: none;
+}
+
+.cv {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: #1a1a1a;
+}
+
+/* ── Encabezado ─────────────────────────────────────── */
+
+.cv-name {
+  font-size: 21pt;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 2px;
+}
+
+.cv-label {
+  font-size: 11pt;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.cv-contact {
+  font-size: 9pt;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  padding-bottom: 10px;
+}
+
+.cv-contact a {
+  color: #333;
+  text-decoration: none;
+}
+
+.cv-contact .sep {
+  color: #bbb;
+}
+
+/* ── Secciones ──────────────────────────────────────── */
+
+.cv-section {
+  margin-top: 12px;
+}
+
+/* h2 real: los parsers y los PDF etiquetados usan la jerarquía de headings.
+   Sin letter-spacing a propósito: al extraer el texto del PDF, el tracking hace que
+   "SPEAKING & COMMUNITY" salga como "S P E A K I N G & CO M M U N I T Y" y el ATS
+   deja de reconocer el encabezado de sección. */
+.cv-section > h2 {
+  font-size: 9.5pt;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: #000;
+  border-bottom: 1.5px solid #333;
+  padding-bottom: 2px;
+  margin-bottom: 6px;
+}
+
+.cv-summary {
+  text-align: justify;
+  color: #222;
+}
+
+/* ── Skills ─────────────────────────────────────────── */
+
+.cv-skills {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 3px 12px;
+}
+
+.cv-skills dt {
+  font-weight: 700;
+  color: #000;
+}
+
+.cv-skills dd {
+  color: #222;
+  margin: 0;
+}
+
+/* ── Entradas (experiencia, proyectos, charlas) ─────── */
+
+.cv-entry {
+  margin-bottom: 8px;
+  /* Que una entrada no se parta entre dos páginas del PDF */
+  break-inside: avoid;
+}
+
+.cv-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cv-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.cv-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #000;
+}
+
+/* La fecha va en su propio elemento y en texto plano: es lo que arma la línea de tiempo del ATS */
+.cv-entry-date {
+  font-size: 9pt;
+  color: #555;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cv-entry-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 9.5pt;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+.cv-entry-loc {
+  font-style: normal;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cv-entry ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.cv-entry li {
+  margin-bottom: 1.5px;
+  color: #222;
+}
+
+.cv-langs {
+  color: #222;
+}
+
+/* ── Impresión ──────────────────────────────────────── */
+
+@page {
+  size: letter;
+  margin: 10mm;
+}
+
+@media print {
+  /* Calibrado empíricamente para que todo entre en UNA página carta manteniendo 9pt
+     (legible). Si agregás contenido a cv.ts, revisá que siga en 1 página. */
+  .cv {
+    max-width: none;
+    padding: 0;
+    font-size: 9pt;
+    line-height: 1.26;
+  }
+
+  .cv-section {
+    margin-top: 6px;
+  }
+
+  .cv-section > h2 {
+    margin-bottom: 4px;
+  }
+
+  .cv-entry {
+    margin-bottom: 5px;
+  }
+
+  .cv-no-print {
+    display: none !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+}
+
+/* Barra de acciones: sólo en pantalla */
+.cv-actions {
+  max-width: 820px;
+  margin: 1.5rem auto -1rem;
+  padding: 0 2.5rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cv-actions a {
+  font-size: 9pt;
+  padding: 6px 12px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  color: #222;
+  text-decoration: none;
+  background: #fafafa;
+}
+
+.cv-actions a:hover {
+  background: #eee;
+}
+
+@media (max-width: 640px) {
+  .cv {
+    padding: 2rem 1.1rem;
+  }
+
+  .cv-skills {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+
+  .cv-skills dt {
+    margin-top: 6px;
+  }
+
+  .cv-entry-head,
+  .cv-entry-sub {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cv-actions {
+    padding: 0 1.1rem;
+  }
+}

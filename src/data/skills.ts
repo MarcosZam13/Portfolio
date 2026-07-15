@@ -8,23 +8,31 @@ export interface SkillCategory {
 export const skills: SkillCategory[] = [
   {
     label: "Languages",
-    items: ["TypeScript", "JavaScript", "SQL (PostgreSQL)", "Java", "Python", "C++"],
+    items: ["TypeScript", "JavaScript", "SQL (PostgreSQL)", "Python", "Java", "C++"],
   },
   {
     label: "Frontend",
-    items: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
+    items: ["React", "Next.js (App Router)", "HTML", "CSS", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
   },
   {
     label: "Backend",
-    items: ["Node.js", "Supabase", "Edge Functions", "RLS", "Supabase Auth", "Supabase Realtime"],
+    items: ["Node.js", "Supabase", "Edge Functions", "RLS", "Supabase Auth", "Supabase Realtime", "REST APIs"],
   },
   {
-    label: "State & Forms",
-    items: ["Zustand", "React Hook Form", "Zod"],
+    label: "Data & State",
+    items: ["PostgreSQL", "Zustand", "React Hook Form", "Zod"],
+  },
+  {
+    label: "Data Analysis",
+    items: ["pandas", "scikit-learn", "Plotly", "Dimensional modeling (star schema)"],
+  },
+  {
+    label: "AI & Automation",
+    items: ["Claude Code", "OpenClaw", "OpenRouter", "n8n"],
   },
   {
     label: "Tools & Platforms",
-    items: ["Git", "GitHub", "Netlify", "Render", "Vercel", "Google Maps API", "Google Colab"],
+    items: ["Git", "GitHub", "Vercel", "Cloudflare", "Netlify", "Render", "Google Maps API", "Linux (CachyOS)"],
   },
   {
     label: "Currently Learning",

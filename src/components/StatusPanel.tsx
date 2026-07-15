@@ -10,28 +10,20 @@ interface StatusEntry {
 }
 
 const STATUS_ENTRIES: StatusEntry[] = [
-  { label: "GymBase SaaS",   value: "ACTIVE",   dotColor: "green" },
-  { label: "CaneleApp",      value: "DEPLOYED",  dotColor: "green" },
-  { label: "TEC · CS Degree",value: "IN PROG",   dotColor: "orange" },
-  { label: "Open to work",   value: "TRUE",      dotColor: "green" },
+  { label: "COMPDES 2026",    value: "SPEAKING", dotColor: "green" },
+  { label: "GymBase SaaS",    value: "ACTIVE",   dotColor: "green" },
+  { label: "CaneleApp",       value: "DEPLOYED", dotColor: "green" },
+  { label: "TEC · CS Degree", value: "IN PROG",  dotColor: "orange" },
+  { label: "Open to work",    value: "TRUE",     dotColor: "green" },
 ];
 
 export default function StatusPanel(): React.ReactElement {
   return (
     <motion.div
+      className="status-panel"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.3, duration: 0.8, ease: "easeOut" }}
-      style={{
-        position: "absolute",
-        right: "2.5rem",
-        top: "50%",
-        transform: "translateY(-50%)",
-        border: "1px solid rgba(0,245,255,0.2)",
-        padding: "1.5rem",
-        background: "rgba(10,21,32,0.8)",
-        minWidth: "220px",
-      }}
     >
       {/* Título del panel */}
       <div

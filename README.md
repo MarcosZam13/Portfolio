@@ -1,18 +1,18 @@
 # Marcos Zamora — Portfolio
 
-Personal portfolio site built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Dark/cyberpunk aesthetic with terminal-inspired design.
+Personal portfolio site built with Next.js 16, TypeScript, Tailwind CSS, and Framer Motion. Dark/cyberpunk aesthetic with terminal-inspired design.
 
-**Live:**: (https://portfolio-one-beryl-60.vercel.app/)
+**Live:** https://portfolio-one-beryl-60.vercel.app/
 
 ---
 
 ## Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript (strict)
 - **Styling:** Tailwind CSS + CSS custom properties
 - **Animations:** Framer Motion
-- **Fonts:** Orbitron + Share Tech Mono (Google Fonts)
+- **Fonts:** Orbitron + Share Tech Mono, self-hosted via `next/font`
 - **Deployment:** Vercel
 
 ## Features
@@ -46,6 +46,33 @@ src/
     ├── projects.ts      # Typed project data
     └── skills.ts        # Skill categories
 ```
+
+## CV as code
+
+`src/data/cv.ts` is the single source of truth. Three artifacts are generated from it:
+
+| Artifact | Route / path | What it's for |
+| --- | --- | --- |
+| HTML | `/cv` | Readable CV + embedded `schema.org/Person` JSON-LD |
+| JSON Resume | `/cv.json` | [jsonresume.org](https://jsonresume.org/schema) v1 — machine-readable, CORS-enabled |
+| PDF | `public/MarcosZamora_CV.pdf` | Tagged, 1 page, what recruiters get |
+
+Edit `src/data/cv.ts`, then regenerate the PDF:
+
+```bash
+npm run build
+npm run cv:pdf
+```
+
+Notes for future edits:
+
+- Dates live in ISO (`YYYY-MM`) plus a `display` string. ATS parsers and LinkedIn autofill build the
+  timeline from the ISO values, so keep them accurate.
+- The print styles are calibrated so the CV fits on **one letter page** at 9pt. If you add content,
+  re-run `npm run cv:pdf` and check `pdfinfo public/MarcosZamora_CV.pdf | grep Pages`.
+- Don't add `letter-spacing` to the section headings: it makes `pdftotext` extract
+  `SPEAKING & COMMUNITY` as `S P E A K I N G & CO M M U N I T Y`, and ATS parsers stop recognising
+  the section.
 
 ## Local development
 

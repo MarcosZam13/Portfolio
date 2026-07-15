@@ -4,14 +4,7 @@ import ProjectCard from "./ProjectCard";
 
 export default function Projects(): React.ReactElement {
   return (
-    <section
-      id="projects"
-      style={{
-        padding: "6rem 2.5rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
+    <section id="projects" className="section">
       {/* Header de sección con numeración estilo código */}
       <div style={{ marginBottom: "3rem" }}>
         <div
@@ -23,13 +16,13 @@ export default function Projects(): React.ReactElement {
             marginBottom: "0.5rem",
           }}
         >
-          <span style={{ color: "var(--dim)" }}>// </span>
+          <span style={{ color: "var(--dim)" }}>{"// "}</span>
           01 · projects
         </div>
         <h2
           style={{
-            fontFamily: "'Orbitron', monospace",
-            fontSize: "2rem",
+            fontFamily: "var(--font-orbitron), monospace",
+            fontSize: "clamp(1.5rem, 5vw, 2rem)",
             fontWeight: 700,
             color: "#fff",
           }}
@@ -39,13 +32,7 @@ export default function Projects(): React.ReactElement {
       </div>
 
       {/* Grid de cards */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-          gap: "1.5rem",
-        }}
-      >
+      <div className="card-grid">
         {projects.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}

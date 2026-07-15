@@ -13,18 +13,8 @@ const fadeVariant = (delay: number) => ({
 
 export default function Hero(): React.ReactElement {
   return (
-    <section
-      id="about"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        padding: "0 2.5rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
-      <div style={{ maxWidth: "800px" }}>
+    <section id="about" className="hero">
+      <div className="hero-content">
         {/* Label de introducción con prefijo > en verde */}
         <motion.div {...fadeVariant(0.3)}
           style={{
@@ -42,7 +32,7 @@ export default function Hero(): React.ReactElement {
         {/* Nombre con efecto glitch */}
         <motion.h1 {...fadeVariant(0.5)}
           style={{
-            fontFamily: "'Orbitron', monospace",
+            fontFamily: "var(--font-orbitron), monospace",
             fontSize: "clamp(2.5rem, 6vw, 5rem)",
             fontWeight: 900,
             lineHeight: 1.05,
@@ -58,13 +48,13 @@ export default function Hero(): React.ReactElement {
         {/* Rol con cursor parpadeante */}
         <motion.div {...fadeVariant(0.7)}
           style={{
-            fontSize: "1rem",
+            fontSize: "clamp(0.85rem, 3vw, 1rem)",
             color: "var(--green)",
             marginBottom: "1.5rem",
           }}
         >
           {/* Comentario de código como presentación del rol */}
-          // Full-Stack Developer
+          {"// "}Full-Stack Developer &amp; SaaS Builder
           <span
             style={{
               display: "inline-block",
@@ -90,8 +80,9 @@ export default function Hero(): React.ReactElement {
           }}
         >
           Computer Engineering student at TEC, Costa Rica. I build full-stack web applications —
-          from freelance client delivery to SaaS platforms in active development.
-          Strong focus on TypeScript, React ecosystem, and Supabase.
+          from freelance client delivery to a multi-tenant SaaS in production development.
+          I also teach: workshops at COMPDES two years running, currently on building AI agents
+          from scratch.
         </motion.p>
 
         {/* Botones CTA */}
@@ -99,6 +90,7 @@ export default function Hero(): React.ReactElement {
           style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
         >
           <PrimaryButton href="#projects">View Projects</PrimaryButton>
+          <SecondaryButton href="/MarcosZamora_CV.pdf" download>Download CV</SecondaryButton>
           <SecondaryButton href="#contact">Get In Touch</SecondaryButton>
         </motion.div>
       </div>
@@ -119,7 +111,7 @@ function PrimaryButton({ href, children }: { href: string; children: React.React
         background: "transparent",
         border: "1px solid var(--cyan)",
         color: "var(--cyan)",
-        fontFamily: "'Share Tech Mono', monospace",
+        fontFamily: "var(--font-share-tech), monospace",
         fontSize: "0.8rem",
         letterSpacing: "2px",
         textTransform: "uppercase",
@@ -161,16 +153,26 @@ function PrimaryButton({ href, children }: { href: string; children: React.React
 }
 
 // Botón secundario que cambia a naranja en hover
-function SecondaryButton({ href, children }: { href: string; children: React.ReactNode }): React.ReactElement {
+function SecondaryButton({
+  href,
+  children,
+  download,
+}: {
+  href: string;
+  children: React.ReactNode;
+  download?: boolean;
+}): React.ReactElement {
   return (
     <a
       href={href}
+      // `download` fuerza la descarga del PDF en vez de abrirlo en una pestaña
+      download={download}
       style={{
         padding: "0.75rem 2rem",
         background: "transparent",
         border: "1px solid var(--dim)",
         color: "var(--dim)",
-        fontFamily: "'Share Tech Mono', monospace",
+        fontFamily: "var(--font-share-tech), monospace",
         fontSize: "0.8rem",
         letterSpacing: "2px",
         textTransform: "uppercase",
