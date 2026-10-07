@@ -46,8 +46,8 @@ export const basics = {
     { network: "GitHub", username: "MarcosZam13", url: "https://github.com/MarcosZam13" },
     {
       network: "LinkedIn",
-      username: "marcos-zamora-sanchez",
-      url: "https://linkedin.com/in/marcos-zamora-sanchez",
+      username: "marcos-zamora-sánchez-01b374272",
+      url: "https://www.linkedin.com/in/marcos-zamora-s%C3%A1nchez-01b374272",
     },
   ],
   summary:

@@ -72,7 +72,7 @@ export default function CVPage(): React.ReactElement {
             {basics.profiles.map((p) => (
               <span key={p.network} style={{ display: "contents" }}>
                 <span className="sep">|</span>
-                <a href={p.url}>{p.url.replace("https://", "")}</a>
+                <a href={p.url}>{decodeURI(p.url).replace(/^https:\/\/(www\.)?/, "")}</a>
               </span>
             ))}
           </div>

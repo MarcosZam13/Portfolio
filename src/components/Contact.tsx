@@ -18,8 +18,8 @@ const LINKS = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/marcos-zamora-sanchez",
-    href: "https://linkedin.com/in/marcos-zamora-sanchez",
+    value: "linkedin.com/in/marcos-zamora-sánchez-01b374272",
+    href: "https://www.linkedin.com/in/marcos-zamora-s%C3%A1nchez-01b374272",
     prefix: "↗",
   },
   {
