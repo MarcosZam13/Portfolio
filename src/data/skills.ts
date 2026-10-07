@@ -35,7 +35,11 @@ export const skills: SkillCategory[] = [
     items: ["Git", "GitHub", "Vercel", "Cloudflare", "Netlify", "Render", "Google Maps API", "Linux (CachyOS)"],
   },
   {
+    label: "Testing & Process",
+    items: ["Vitest", "Testing Library", "Playwright", "Scrum", "Jira", "Gitflow"],
+  },
+  {
     label: "Currently Learning",
-    items: ["Advanced backend", "DB optimization", "CI/CD", "Testing", "ANTLR4"],
+    items: ["CI/CD", "Docker", "Ansible", "Observability", "DB optimization"],
   },
 ];

@@ -10,9 +10,9 @@ interface StatusEntry {
 }
 
 const STATUS_ENTRIES: StatusEntry[] = [
-  { label: "COMPDES 2026",    value: "SPEAKING", dotColor: "green" },
-  { label: "GymBase SaaS",    value: "ACTIVE",   dotColor: "green" },
-  { label: "CaneleApp",       value: "DEPLOYED", dotColor: "green" },
+  { label: "DojoBase SaaS",   value: "ACTIVE",   dotColor: "green" },
+  { label: "Tacha · Scrum",   value: "SPRINT 3", dotColor: "green" },
+  { label: "DevOpsLab",       value: "PLANNING", dotColor: "orange" },
   { label: "TEC · CS Degree", value: "IN PROG",  dotColor: "orange" },
   { label: "Open to work",    value: "TRUE",     dotColor: "green" },
 ];

@@ -20,7 +20,7 @@ const shareTechMono = Share_Tech_Mono({
 const SITE_URL = "https://portfolio-one-beryl-60.vercel.app";
 const TITLE = "Marcos Zamora — Full-Stack Developer";
 const DESCRIPTION =
-  "Full-stack developer from Costa Rica. Multi-tenant SaaS on Next.js and Supabase, freelance delivery, and AI agent workshops at COMPDES.";
+  "Full-stack developer from Costa Rica. Multi-tenant SaaS on Next.js and Supabase, team Scrum projects, freelance delivery, and AI agent workshops at COMPDES.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

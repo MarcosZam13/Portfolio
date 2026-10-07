@@ -51,7 +51,7 @@ export const basics = {
     },
   ],
   summary:
-    "Computer Engineering student who ships production software: a multi-tenant SaaS platform in active development and a freelance web app sold and delivered to a paying client. Strong in TypeScript, Node.js and Supabase/PostgreSQL, with production deployments on Vercel and Cloudflare. Workshop facilitator at COMPDES, the Central American computing congress, two years running.",
+    "Computer Engineering student who ships production software: a multi-tenant SaaS platform in active development and a freelance web app sold and delivered to a paying client. Strong in TypeScript, Node.js and Supabase/PostgreSQL, with automated testing (Vitest, Playwright) and Scrum team experience. Workshop facilitator at COMPDES, the Central American computing congress, two years running.",
 } as const;
 
 export const skills: SkillGroup[] = [
@@ -83,22 +83,26 @@ export const skills: SkillGroup[] = [
     label: "Tools & Platforms",
     items: ["Git", "GitHub", "Vercel", "Cloudflare", "Netlify", "Render", "Google Maps API", "Linux (CachyOS)"],
   },
+  {
+    label: "Testing & Process",
+    items: ["Vitest", "Testing Library", "Playwright", "Scrum", "Jira", "Gitflow"],
+  },
 ];
 
 export const experience: Role[] = [
   {
-    organization: "GymBase / MemberBase",
+    organization: "CoreBase / DojoBase",
     position: "Founder & Solo Developer",
     location: "Remote — Costa Rica",
     period: { start: "2026-03", display: "Mar 2026 – Present" },
-    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Zustand"],
-    url: "https://gymbase.fit",
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "pnpm monorepo"],
+    url: "https://dojobase-landing.vercel.app",
     // Bullets de una línea: el CV entra en una página carta a 9pt
     highlights: [
-      "Architected a multi-tenant gym SaaS covering members, routines, community, payments and scheduling; live on a custom domain.",
-      "Enforced tenant isolation at the DB layer with Supabase RLS policies on a shared get_user_role() function.",
-      "Designed a WhatsApp Business integration using gym-owned numbers via Embedded Signup.",
-      "Built admin and client portals (Next.js App Router, TypeScript strict, shadcn/ui, Zustand) with Google OAuth and Resend email.",
+      "Built GymBase v1, a multi-tenant gym SaaS live on a custom domain, then rewrote it as CoreBase, a reusable platform layer.",
+      "DojoBase, the first product on CoreBase: ranks, classes, sparring, promotions, tournaments and billing for martial arts academies.",
+      "Tenant resolved from a JWT claim and isolated with Supabase RLS, with automated RLS tests; 40+ merged PRs.",
+      "Fixed production-grade bugs: recurring-class timezone drift, local-date handling, SECURITY DEFINER on auth triggers.",
     ],
   },
   {
@@ -111,15 +115,26 @@ export const experience: Role[] = [
     highlights: [
       "Designed, sold and delivered a route and order management app for a bakery — first paid client project, shipped Dec 2025.",
       "Built the backend with Node.js and Supabase (PostgreSQL); Google Maps API for route visualization.",
-      "Kept it running 24/7 on free-tier Netlify and Render via a keep-alive Edge Function and cron job.",
-      "Shipped a v2 rework on an updated stack in May 2026.",
+      "Kept it running 24/7 on free-tier Netlify and Render via a keep-alive Edge Function; shipped a v2 rework in May 2026.",
+    ],
+  },
+  {
+    organization: "Tacha — Web Development course",
+    position: "Full-Stack Developer, Scrum team of 6",
+    location: "Tecnológico de Costa Rica",
+    period: { start: "2026-08", display: "Aug 2026 – Present" },
+    stack: ["Next.js", "React", "Supabase", "Vitest", "Playwright", "Jira"],
+    url: "https://github.com/MarcosZam13/tacha",
+    highlights: [
+      "Collaborative shopping-list app run as real Scrum: Jira sprints, gitflow, one ticket per PR, peer QA before every merge.",
+      "Built the list features, set up Vitest + Playwright and CI on PRs, and ran system QA on each sprint deliverable.",
     ],
   },
   {
     organization: "Tecnológico de Costa Rica",
     position: "Teaching Assistant — Algorithm Analysis",
     location: "Campus San Carlos, Costa Rica",
-    period: { start: "2026-02", end: "2026-06", display: "Semester I 2026" },
+    period: { start: "2026-02", display: "Feb 2026 – Present" },
     highlights: [
       "Graded assignments and exams and gave feedback on algorithmic problem-solving and complexity analysis.",
     ],
@@ -135,8 +150,7 @@ export const talks: Talk[] = [
     url: "https://github.com/MarcosZam13/taller-agentes-ia",
     highlights: [
       "Designed and delivered a workshop on building AI agents from scratch: personal finance, second brain, dev assistant, PDF extraction.",
-      "Built the foundation on OpenClaw + OpenRouter (gpt-4o-mini) as a two-step install: bare chatbot, then tool-executing agent.",
-      "Tested and documented on Arch/CachyOS, Ubuntu/Debian, Raspberry Pi 4 and Windows 11 (WSL2) — runs fully local, no cloud.",
+      "Built on OpenClaw + OpenRouter as a two-step install; tested on CachyOS, Ubuntu, Raspberry Pi 4 and Windows 11 (WSL2).",
     ],
   },
   {
@@ -146,8 +160,7 @@ export const talks: Talk[] = [
     period: { start: "2025-07", end: "2025-07", display: "Jul 2025" },
     url: "https://github.com/MarcosZam13/COMPDES2025-GIT",
     highlights: [
-      "Delivered a 4-hour workshop for university students on real Git workflows: commits, branching, merging, GitHub collaboration.",
-      "Guided a group activity using pull requests to practice team-based development.",
+      "Delivered a 4-hour workshop on real Git workflows, with a group activity using pull requests to practice team development.",
     ],
   },
 ];

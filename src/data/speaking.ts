@@ -26,7 +26,6 @@ export const talks: Talk[] = [
     links: [
       { label: "Workshop repo", href: "https://github.com/MarcosZam13/taller-agentes-ia" },
     ],
-    upcoming: true,
   },
   {
     id: "compdes-2025",
@@ -46,7 +45,7 @@ export const talks: Talk[] = [
     tag: "Teaching · Academic",
     title: "Teaching Assistant — Algorithm Analysis",
     venue: "Tecnológico de Costa Rica",
-    period: "Grading & student support",
+    period: "2026 · Current",
     description:
       "Supported course delivery by grading assignments and exams, and giving feedback on algorithmic problem-solving and complexity analysis.",
     tags: ["Algorithms", "Complexity Analysis", "Mentoring"],
